@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Header() {
-  const atBottom = 100;
+  const atBottom = 250;
   const [show, setShow] = React.useState();
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll);
