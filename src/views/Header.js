@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: "500",
     width: "100%",
     top: 0,
-    animation: `$fadein 0.5s`,
+    animation: `$fadein 0.3s`,
   },
   "@keyframes fadein ": {
     from: { opacity: 0 },
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   nameGrid: { display: "flex" },
   name: {
     textTransform: "uppercase",
-    fontWeight: "500",
+    fontWeight: "600",
     fontSize: "18px",
     color: "#333",
     cursor: "pointer",
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   surname: {
     textTransform: "uppercase",
-    fontWeight: "500",
+    fontWeight: "600",
     color: "#f90",
     "&:hover": {
       textDecoration: "none",

@@ -4,5 +4,9 @@ export const muiTheme = {
       fontFamily: `"Montserrat", "Roboto", "Helvetica", "Arial", sans-serif`,
       fontSize: 14,
     },
+    body2: {
+      fontFamily: ` 'Open Sans', sans-serif`,
+      fontSize: 14,
+    },
   },
 };
