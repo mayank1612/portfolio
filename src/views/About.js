@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   heading: {
     fontSize: "50px",
   },
-  detailsGrid: { padding: "80px 5px 20px 5px" },
+  detailsGrid: { padding: "100px 5px 20px 5px" },
   detailHeading: {
     textAlign: "start",
     fontWeight: 700,
@@ -59,6 +59,11 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "start",
     margin: "5px 50px 5px 0px",
     display: "flex",
+    alignItems: "center",
+  },
+  skillsContentDiv: {
+    textAlign: "start",
+    margin: "5px 50px 5px 0px",
     alignItems: "center",
   },
   profileDetials: { display: "flex", color: "#333" },
@@ -86,6 +91,12 @@ const useStyles = makeStyles((theme) => ({
   personalDetails: {
     margin: "15px 0px",
   },
+  skillsPara: {
+    marginBottom: "35px",
+  },
+  skillsDetails: {
+    height: "60px",
+  },
   personalKey: {
     color: "#333",
     fontSize: "16px",
@@ -95,6 +106,13 @@ const useStyles = makeStyles((theme) => ({
     color: "#333",
     fontSize: "14px",
   },
+  skillBarWrapper: { display: "flex", alignItems: "center" },
+  skillBar: {
+    height: "8px",
+    backgroundColor: "#ccc",
+    width: "100%",
+  },
+  skillValue: { fontSize: "14px", marginLeft: "10px" },
 }));
 
 const personalDetails = [
@@ -109,6 +127,17 @@ const personalDetails = [
     value: "mayankbhagyawani101@gmail.com",
   },
 ];
+
+const skillsPara =
+  "I am a Software Developer. I have huge passion in developing web application using React and ofcourse a MERN (MongoDB, ExpressJS, ReactJS, NodeJS) person. I have some place for Java as well in my heart.";
+
+const skills = [
+  { skill: "HTML & CSS, JavaScript", value: "70%" },
+  { skill: "React", value: "50%" },
+  { skill: "Java", value: "30%" },
+  { skill: "GraphQL and Apollo Client", value: "20%" },
+];
+
 function About() {
   const classes = useStyles();
 
@@ -126,6 +155,7 @@ function About() {
       return (
         <Typography className={classes.content}>
           Heard a lot about me? Oh well. Don’t worry. It can’t all be true. I am
+          &nbsp;
           <a href="https://www.artofliving.org/">Art of Living</a> (AOL)
           volunteer with vision to be an AOL teacher. I served as a AOL student
           campus coordinator for 3 years during graduation at Lovely
@@ -215,6 +245,31 @@ function About() {
         </Grid>
         <Grid item xs="6">
           <Typography className={classes.detailHeading}>Skills</Typography>
+          <div className={classes.skillsContentDiv}>
+            <Typography variant="body2" className={classes.skillsPara}>
+              {skillsPara}
+            </Typography>
+            {skills.map((skill, index) => {
+              return (
+                <div className={classes.skillsDetails} key={index}>
+                  <Typography variant="body2">{skill.skill}</Typography>
+                  <div className={classes.skillBarWrapper}>
+                    <div className={classes.skillBar}>
+                      <div
+                        style={{
+                          height: "8px",
+                          background: "black",
+                          width: `${skill.value}`,
+                        }}
+                      ></div>
+                    </div>
+                    <div className={classes.skillValue}>{skill.value}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          {}
         </Grid>
       </Grid>
     </Grid>

@@ -74,6 +74,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const navLinks = [
+  "home",
+  "about",
+  "experience",
+  "education",
+  "projects",
+  "contact",
+];
 function Header() {
   const atBottom = 250;
   const [show, setShow] = React.useState();
@@ -95,21 +103,13 @@ function Header() {
           </Link>
         </Grid>
         <Grid item className={classes.navGrid}>
-          <Link href="#home" className={classes.navLinks}>
-            Home
-          </Link>
-          <Link href="#about" className={classes.navLinks}>
-            About
-          </Link>
-          <Link href="#experience" className={classes.navLinks}>
-            Experience
-          </Link>
-          <Link href="#education" className={classes.navLinks}>
-            Education
-          </Link>
-          <Link href="#contact" className={classes.navLinks}>
-            Contact
-          </Link>
+          {navLinks.map((link, index) => {
+            return (
+              <Link href={`#${link}`} key={index} className={classes.navLinks}>
+                {link}
+              </Link>
+            );
+          })}
         </Grid>
       </Grid>
     </header>
