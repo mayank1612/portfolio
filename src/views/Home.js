@@ -20,10 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   backgroundCover: {
     backgroundColor: "rgba(0,0,51,0.35);",
-    position: "relative",
-    top: "0",
-    left: "0",
-    width: "100%",
+
     height: "100%",
   },
   homeTextGrid: {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Grid, makeStyles, Link } from "@material-ui/core";
+import { Typography, Grid, makeStyles } from "@material-ui/core";
 import { FaGlobe, FaGraduationCap, FaBriefcase } from "react-icons/fa";
 import mb from "./mb.png";
 
