@@ -26,9 +26,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     "&:hover": {
       textDecoration: "none",
-      color: "#82b440",
-      transition: "all ease .3s",
-      "&::before": { opacity: 1, width: "110%" },
     },
   },
 }));
