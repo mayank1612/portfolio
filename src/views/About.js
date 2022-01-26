@@ -216,7 +216,7 @@ function About() {
         </Grid>
       </Grid>
       <Grid container className={classes.detailsGrid}>
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <Typography className={classes.detailHeading}>Profile</Typography>
           {profileDetails.map((item, index) => {
             return (
@@ -243,7 +243,7 @@ function About() {
             })}
           </div>
         </Grid>
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <Typography className={classes.detailHeading}>Skills</Typography>
           <div className={classes.skillsContentDiv}>
             <Typography variant="body2" className={classes.skillsPara}>
