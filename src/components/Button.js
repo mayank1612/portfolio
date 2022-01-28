@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Button as MuiButton } from "@material-ui/core";
 
-function Button({ text, onClick, style: customStyle }) {
+function Button({ children, onClick, redirectLink, style: customStyle }) {
   const useStyles = makeStyles((theme) => ({
     button: {
       padding: "10px 30px",
@@ -21,8 +21,8 @@ function Button({ text, onClick, style: customStyle }) {
   }));
   const classes = useStyles();
   return (
-    <MuiButton className={classes.button} onClick={onClick}>
-      {text}
+    <MuiButton className={classes.button} onClick={onClick} href={redirectLink}>
+      {children}
     </MuiButton>
   );
 }

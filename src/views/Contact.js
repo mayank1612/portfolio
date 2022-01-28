@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Typography,
-  Grid,
-  makeStyles,
-  TextField,
-  Snackbar,
-} from "@material-ui/core";
+import { Typography, makeStyles, TextField, Snackbar } from "@material-ui/core";
 import Button from "../components/Button";
 import { Alert } from "@material-ui/lab";
 
@@ -36,12 +30,15 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px 0px",
 
     "& .MuiOutlinedInput-root": {
+      "&:hover fieldset": {
+        borderColor: "#86a55e",
+      },
       "&.Mui-focused fieldset": {
         borderColor: "#86a55e",
       },
     },
     "& .MuiFormLabel-root": {
-      color: "#82b440",
+      color: "#808080",
     },
   },
 
@@ -86,7 +83,6 @@ function Contact() {
       </Typography>
       <div className={classes.form}>
         <TextField
-          autoFocus={true}
           placeholder="Subject"
           id="subject"
           fullWidth
@@ -107,11 +103,9 @@ function Contact() {
           className={classes.textfeild}
         />
 
-        <Button
-          text={"submit"}
-          onClick={sendMail}
-          style={{ marginTop: "10px" }}
-        />
+        <Button onClick={sendMail} style={{ marginTop: "10px" }}>
+          submit
+        </Button>
         <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
           <Alert severity="warning">
             Subject and message field can't be empty!

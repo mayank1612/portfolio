@@ -5,6 +5,7 @@ import About from "./views/About";
 import HireMe from "./views/HireMe";
 import Experience from "./views/Experience";
 import Contact from "./views/Contact";
+import Projects from "./views/Projects";
 import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { muiTheme } from "./theme/common";
@@ -19,6 +20,7 @@ function App() {
         <About />
         <HireMe />
         <Experience />
+        {/* <Projects /> */}
         <Contact />
       </div>
     </ThemeProvider>
