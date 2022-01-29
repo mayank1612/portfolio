@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   experienceContainer: {
     background: "#f3f3f3",
     padding: "50px 180px",
+    [theme.breakpoints.down("xs")]: { padding: "20px 0px" },
   },
   experience: {
     color: "#333",
@@ -28,7 +29,10 @@ const useStyles = makeStyles((theme) => ({
     color: "#808080",
   },
   duration: { color: "#333333", fontSize: "16px" },
-  timelineWrapper: { margin: "50px 0px" },
+  timelineWrapper: {
+    margin: "50px 0px",
+    [theme.breakpoints.down("xs")]: { display: "none" },
+  },
   timelineDot: {
     padding: "15px",
     background: "#ffd79c",
@@ -37,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
       margin: "0px",
     },
   },
+
   timelineConnector: {
     minHeight: "80px",
     width: "3px",
@@ -50,6 +55,31 @@ const useStyles = makeStyles((theme) => ({
     "&.MuiTimelineOppositeContent-root": {
       padding: "18px 16px",
     },
+  },
+
+  timelineWrapperMV: {
+    margin: "0px",
+    display: "none",
+    [theme.breakpoints.down("xs")]: { display: "block" },
+  },
+  timelineItemMV: {
+    "&.MuiTimelineItem-missingOppositeContent": {
+      "&::before": {
+        flex: 0,
+        padding: "0px",
+      },
+    },
+  },
+  timelineDotMV: {
+    padding: "8px",
+    background: "#ffd79c",
+    fontSize: "20px",
+    "&.MuiTimelineDot-root": {
+      margin: "0px",
+    },
+  },
+  timelineContentMV: {
+    padding: "16px 0px 0px 16px",
   },
 }));
 
@@ -111,6 +141,35 @@ function Experience() {
                   <Collapse
                     heading={heading}
                     subHeading={subHeading}
+                    content={content}
+                  />
+                </TimelineContent>
+              </TimelineItem>
+            );
+          })}
+        </Timeline>
+      </div>
+      <div className={classes.timelineWrapperMV}>
+        <Timeline>
+          {experienceData.map((data, index) => {
+            const { heading, subHeading, duration, content, Icon } = data;
+            return (
+              <TimelineItem key={index} className={classes.timelineItemMV}>
+                <TimelineSeparator>
+                  <TimelineDot className={classes.timelineDotMV}>
+                    <Icon />
+                  </TimelineDot>
+                  <TimelineConnector className={classes.timelineConnector} />
+                </TimelineSeparator>
+                <TimelineContent className={classes.timelineContentMV}>
+                  <Collapse
+                    heading={heading}
+                    subHeading={
+                      <>
+                        <div>{subHeading}</div>
+                        <div>{duration}</div>
+                      </>
+                    }
                     content={content}
                   />
                 </TimelineContent>

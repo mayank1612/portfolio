@@ -11,10 +11,14 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     padding: "50px 250px",
     background: `url("https://i.imgur.com/Yj15qi8.png") repeat center center`,
+    overflowX: "hidden",
+    width: "100vw",
+    [theme.breakpoints.down("xs")]: { padding: "20px" },
   },
   profilePicGrid: {},
   profilePic: {
     width: "140px",
+    [theme.breakpoints.down("xs")]: { width: "100px" },
     borderRadius: "50%",
     transform: "rotate(354deg)",
   },
@@ -22,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     paddingLeft: "20px",
+    [theme.breakpoints.down("xs")]: {
+      paddingLeft: "0px",
+    },
   },
   mainGrid: {
     display: "flex",
@@ -30,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     padding: "20px 0px",
     flexWrap: "nowrap",
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
+      padding: "10px 0px",
+    },
   },
   content: {
     textAlign: "start",
@@ -42,11 +53,19 @@ const useStyles = makeStyles((theme) => ({
   },
   about: {
     fontSize: "23px",
+    [theme.breakpoints.down("xs")]: { fontSize: "20px" },
   },
   heading: {
     fontSize: "50px",
+    [theme.breakpoints.down("xs")]: { fontSize: "25px" },
   },
-  detailsGrid: { padding: "100px 5px 20px 5px" },
+  detailsGrid: {
+    padding: "100px 5px 20px 5px",
+    [theme.breakpoints.down("xs")]: {
+      padding: "20px 5px",
+      flexDirection: "column",
+    },
+  },
   detailHeading: {
     textAlign: "start",
     fontWeight: 700,
@@ -60,10 +79,12 @@ const useStyles = makeStyles((theme) => ({
     margin: "5px 50px 5px 0px",
     display: "flex",
     alignItems: "center",
+    [theme.breakpoints.down("xs")]: { margin: "5px" },
   },
   skillsContentDiv: {
     textAlign: "start",
     margin: "5px 50px 5px 0px",
+    [theme.breakpoints.down("xs")]: { margin: "5px" },
     alignItems: "center",
   },
   profileDetials: { display: "flex", color: "#333" },
@@ -87,12 +108,14 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "start",
     margin: "25px 50px 5px 0px",
     alignItems: "center",
+    [theme.breakpoints.down("xs")]: { margin: "5px" },
   },
   personalDetails: {
     margin: "15px 0px",
   },
   skillsPara: {
     marginBottom: "35px",
+    [theme.breakpoints.down("xs")]: { marginBottom: "20px" },
   },
   skillsDetails: {
     height: "60px",
@@ -113,6 +136,14 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   skillValue: { fontSize: "14px", marginLeft: "10px" },
+  skillGridItem: {
+    width: "50%",
+    [theme.breakpoints.down("xs")]: { width: "100%", marginTop: "20px" },
+  },
+  profileDetailsGridItem: {
+    width: "50%",
+    [theme.breakpoints.down("xs")]: { width: "100%" },
+  },
 }));
 
 const personalDetails = [
@@ -216,7 +247,7 @@ function About() {
         </Grid>
       </Grid>
       <Grid container className={classes.detailsGrid}>
-        <Grid item xs={6}>
+        <Grid item className={classes.profileDetailsGridItem}>
           <Typography className={classes.detailHeading}>Profile</Typography>
           {profileDetails.map((item, index) => {
             return (
@@ -243,7 +274,7 @@ function About() {
             })}
           </div>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item className={classes.skillGridItem}>
           <Typography className={classes.detailHeading}>Skills</Typography>
           <div className={classes.skillsContentDiv}>
             <Typography variant="body2" className={classes.skillsPara}>

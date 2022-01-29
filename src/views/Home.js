@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     padding: "0",
     backgroundSize: "cover",
+    backgroundAttachment: "fixed",
   },
   backgroundCover: {
     backgroundColor: "rgba(0,0,51,0.35);",
@@ -33,19 +34,26 @@ const useStyles = makeStyles((theme) => ({
   },
   hiText: {
     color: "#fff",
-    fontSize: "1.5rem",
+    fontSize: "23px",
+    [theme.breakpoints.down("xs")]: { fontSize: "20px" },
   },
   nameText: {
     color: "#fff",
-    fontSize: "5rem",
+    fontSize: "80px",
+    lineHeight: "1.3",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "40px",
+    },
   },
   typewritterGrid: {
     display: "flex",
+    marginTop: "10px",
   },
   typewriter: {
-    fontSize: "1.5rem",
+    fontSize: "23px",
     marginLeft: "5px",
     fontWeight: "bold",
+    [theme.breakpoints.down("xs")]: { fontSize: "20px" },
   },
   iconsGrid: {
     margin: "20px",

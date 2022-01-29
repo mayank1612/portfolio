@@ -33,6 +33,7 @@ function Collapse(props) {
     heading: {
       color: "#333",
       fontSize: "18px",
+      [theme.breakpoints.down("xs")]: { fontSize: "16px" },
       fontWeight: "700",
     },
     subHeading: {
@@ -43,6 +44,7 @@ function Collapse(props) {
       display: "flex",
       paddingLeft: "90%",
       marginTop: "-25px",
+      [theme.breakpoints.down("xs")]: { marginTop: "-20px" },
     },
     icon: {
       cursor: "pointer",
@@ -51,6 +53,7 @@ function Collapse(props) {
       background: "#ffd79c",
       color: "#fff",
       borderRadius: "5px",
+      [theme.breakpoints.down("xs")]: { width: "20px", height: "20px" },
     },
     iconExpanded: {
       cursor: "pointer",

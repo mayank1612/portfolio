@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundAttachment: "fixed",
     backgroundSize: "cover",
     position: "relative",
+    [theme.breakpoints.down("xs")]: { height: "100px" },
   },
   imgWrapper: {
     top: "0",
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   hireMeContent: {},
   hireMeText: {
     fontSize: "30px",
+    [theme.breakpoints.down("xs")]: { fontSize: "14px" },
     color: "#fff",
     "&:hover": {
       textDecoration: "none",

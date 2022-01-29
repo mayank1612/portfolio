@@ -7,19 +7,23 @@ const useStyles = makeStyles((theme) => ({
   contactContainer: {
     background: "#fff",
     padding: "50px 180px",
+    [theme.breakpoints.down("xs")]: { padding: "20px 0px" },
   },
   heading: {
     color: "#333",
     fontSize: "30px",
     fontWeight: "800",
     marginBottom: "10px",
+    [theme.breakpoints.down("xs")]: { fontSize: "18px" },
   },
   subheading: {
     fontSize: "16px",
+    [theme.breakpoints.down("xs")]: { fontSize: "14px" },
     color: "#808080",
   },
   form: {
     padding: "30px 250px",
+    [theme.breakpoints.down("xs")]: { padding: "30px" },
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

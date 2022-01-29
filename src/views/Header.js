@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, Grid, makeStyles } from "@material-ui/core";
+import { Link, Grid, makeStyles, Popper, Fade } from "@material-ui/core";
+import { Menu } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -20,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     padding: "20px 70px",
+    [theme.breakpoints.down("xs")]: { padding: "10px 20px" },
   },
   nameGrid: { display: "flex" },
   name: {
@@ -33,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
       color: "#f90",
       transition: "all .3s",
     },
+    [theme.breakpoints.down("xs")]: { fontSize: "14px" },
   },
   surname: {
     textTransform: "uppercase",
@@ -73,13 +76,68 @@ const useStyles = makeStyles((theme) => ({
       transition: "all ease .3s",
       width: "0%",
     },
+    [theme.breakpoints.down("xs")]: { display: "none" },
+  },
+  menuIcon: {
+    display: "none",
+    color: "#333",
+    cursor: "pointer",
+    [theme.breakpoints.down("xs")]: { display: "block" },
+  },
+  menuLinks: {
+    padding: "10px 5px",
+    margin: "0px 10px",
+    transition: "all .3s",
+    color: "#333",
+    textTransform: "uppercase",
+    fontSize: "13px",
+    fontFamily: "Montserrat",
+    "&:hover": {
+      textDecoration: "none",
+      color: "#82b440",
+      transition: "all ease .3s",
+      "&::before": { opacity: 1, width: "100%" },
+    },
+    "&::before": {
+      height: "1px",
+      background: "black",
+      content: "''",
+      display: "block",
+      position: "relative",
+      top: "20px",
+      opacity: 0,
+      transition: "all ease .3s",
+      width: "0%",
+    },
+  },
+  popper: {
+    // zIndex: "9999",
+  },
+  paper: {
+    background: "#fff",
+    width: "100vw",
+    height: "100vh",
+    padding: "10px 0px",
+    display: "flex",
+    flexDirection: "column",
   },
 }));
 
-const navLinks = ["home", "about", "experience", "projects", "contact"];
+const navLinks = ["home", "about", "experience", "contact"];
 function Header() {
   const atBottom = 250;
   const [show, setShow] = React.useState();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+
+  const handleClickAway = () => {
+    setAnchorEl(false);
+  };
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -87,13 +145,16 @@ function Header() {
   function handleScroll() {
     setShow(window.pageYOffset >= atBottom);
   }
+  function scrollTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   const classes = useStyles();
   return show ? (
     <header id="header" className={classes.header}>
       <Grid container className={classes.headerGrid}>
         <Grid item className={classes.nameGrid}>
-          <Link className={classes.name}>
+          <Link onClick={scrollTop} className={classes.name}>
             Mayank <span className={classes.surname}>Bhagyawani</span>
           </Link>
         </Grid>
@@ -105,6 +166,33 @@ function Header() {
               </Link>
             );
           })}
+          <Menu className={classes.menuIcon} onClick={handleClick} />
+          <Popper
+            open={open}
+            anchorEl={anchorEl}
+            transition
+            className={classes.popper}
+            placement="top-end"
+          >
+            {({ TransitionProps }) => (
+              <Fade {...TransitionProps} timeout={350}>
+                <div className={classes.paper}>
+                  {navLinks.map((link, index) => {
+                    return (
+                      <Link
+                        href={`#${link}`}
+                        key={index}
+                        className={classes.menuLinks}
+                        onClick={handleClickAway}
+                      >
+                        {link}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </Fade>
+            )}
+          </Popper>
         </Grid>
       </Grid>
     </header>
