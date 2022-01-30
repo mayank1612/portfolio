@@ -89,7 +89,7 @@ const experienceData = [
     subHeading: "Software Engineer Intern, UI Team",
     duration: "July 2021 - Present",
     content:
-      "I work on React. I am responsible for creating dummy component specefic to SysCloud, made up of material-ui components and written in TypeScript. We call it as syscloud-ui-component library. Worked on SysCloud Health Dashboard and now working on product application.",
+      "I work on React. I am responsible for creating dummy components specific to SysCloud, made up of material-ui components and written in TypeScript. We call it a syscloud-ui-component library. Worked on SysCloud Health Dashboard and now working on a product application.",
     Icon: () => {
       return <FaBriefcase />;
     },
@@ -99,7 +99,7 @@ const experienceData = [
     subHeading: "Freelancer - Poster designer and video editor",
     duration: "January 2021 - June 2021",
     content:
-      "I use Canva to design awesome posters and Filmora for video editing. I used my MS Excel skills to create WhatsApp group by importing contacts all at a time and sending bulk messages.",
+      "I use Canva to design awesome posters and Filmora for video editing. I used my MS Excel skills to create  WhatsApp group by importing contacts all at a time and sending bulk messages.",
     Icon: () => {
       return <ImCross />;
     },
