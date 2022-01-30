@@ -111,15 +111,17 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   popper: {
-    // zIndex: "9999",
+    zIndex: "9999",
+    marginLeft: "-10px",
   },
   paper: {
     background: "#fff",
     width: "100vw",
-    height: "100vh",
-    padding: "10px 0px",
+    padding: "10px",
     display: "flex",
     flexDirection: "column",
+    boxShadow:
+      "2px 3px 1px -1px rgb(0 0 0 / 20%), 4px 3px 1px 0px rgb(0 0 0 / 14%), 1px 5px 3px 0px rgb(0 0 0 / 12%)",
   },
 }));
 
@@ -144,6 +146,7 @@ function Header() {
   });
   function handleScroll() {
     setShow(window.pageYOffset >= atBottom);
+    setAnchorEl(window.pageYOffset < atBottom);
   }
   function scrollTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });

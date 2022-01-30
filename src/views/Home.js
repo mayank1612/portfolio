@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     padding: "0",
     backgroundSize: "cover",
-    backgroundAttachment: "fixed",
   },
   backgroundCover: {
     backgroundColor: "rgba(0,0,51,0.35);",

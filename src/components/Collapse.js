@@ -63,6 +63,7 @@ function Collapse(props) {
       background: "#ffd79c",
       color: "#fff",
       borderRadius: "5px",
+      [theme.breakpoints.down("xs")]: { width: "20px", height: "20px" },
     },
     collapseContent: {
       "&.MuiCardContent-root": {
