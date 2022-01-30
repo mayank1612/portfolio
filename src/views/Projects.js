@@ -5,37 +5,49 @@ const useStyles = makeStyles((theme) => ({
   projectContainer: {
     background: "#fff",
     padding: "50px 80px",
+    [theme.breakpoints.down("xs")]: { padding: "20px" },
   },
   heading: {
     color: "#333",
     fontSize: "30px",
     fontWeight: "800",
     marginBottom: "10px",
+    [theme.breakpoints.down("xs")]: { fontSize: "18px" },
   },
   subheading: {
     fontSize: "16px",
     color: "#808080",
+    [theme.breakpoints.down("xs")]: { fontSize: "14px" },
   },
   projectGrid: {
     padding: "10px",
   },
-  projectGridContainer: { marginTop: "50px" },
+  projectGridContainer: {
+    marginTop: "50px",
+    [theme.breakpoints.down("xs")]: { marginTop: "20px" },
+  },
 }));
 const projectsData = [
   {
-    description: "Some random text",
-    link: "",
-    image: "",
+    description:
+      "Secrets app to share secrets anonymously. It uses Google OAuth and app credentials for login.",
+    link: "https://arcane-earth-62220.herokuapp.com/",
+    image:
+      "https://cdn.pixabay.com/photo/2016/02/15/23/40/security-1202344_960_720.png",
   },
   {
-    description: "Some random text",
-    link: "",
-    image: "",
+    description:
+      "Todo-List where multiple lists can be created which are stored using MongoDB.",
+    link: "https://blooming-fjord-25855.herokuapp.com/",
+    image:
+      "https://cdn.pixabay.com/photo/2018/09/15/16/26/checklist-3679741_960_720.jpg",
   },
   {
-    description: "Some random text",
-    link: "",
-    image: "",
+    description:
+      "MB Blogs is a place where you can add your blogs to MB world.",
+    link: "https://limitless-shore-98688.herokuapp.com/",
+    image:
+      "https://cdn.pixabay.com/photo/2014/08/27/08/11/blogging-428955_960_720.jpg",
   },
 ];
 function Projects() {
@@ -56,6 +68,7 @@ function Projects() {
                 text={data.description}
                 redirectLink={data.link}
                 buttonText="View Website"
+                image={data.image}
               />
             </Grid>
           );

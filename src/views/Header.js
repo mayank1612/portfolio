@@ -125,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const navLinks = ["home", "about", "experience", "contact"];
+const navLinks = ["home", "about", "experience", "projects", "contact"];
 function Header() {
   const atBottom = 250;
   const [show, setShow] = React.useState();

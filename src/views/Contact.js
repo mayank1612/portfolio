@@ -5,7 +5,7 @@ import { Alert } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
   contactContainer: {
-    background: "#fff",
+    background: "#f3f3f3",
     padding: "50px 180px",
     [theme.breakpoints.down("xs")]: { padding: "20px 0px" },
   },

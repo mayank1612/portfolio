@@ -23,10 +23,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "30px",
     fontWeight: "800",
     marginBottom: "10px",
+    [theme.breakpoints.down("xs")]: { fontSize: "18px" },
   },
   experienceQuote: {
     fontSize: "16px",
     color: "#808080",
+    [theme.breakpoints.down("xs")]: { fontSize: "14px" },
   },
   duration: { color: "#333333", fontSize: "16px" },
   timelineWrapper: {
@@ -112,7 +114,7 @@ function Experience() {
   return (
     <div id="experience" className={classes.experienceContainer}>
       <Typography variant="body1" className={classes.experience}>
-        EXPERIENCE
+        Experience
       </Typography>
       <Typography variant="body2" className={classes.experienceQuote}>
         Every moment is experience
