@@ -146,7 +146,9 @@ function Header() {
   });
   function handleScroll() {
     setShow(window.pageYOffset >= atBottom);
-    setAnchorEl(window.pageYOffset < atBottom);
+    setAnchorEl((prevState) => {
+      return show ? prevState : null;
+    });
   }
   function scrollTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });

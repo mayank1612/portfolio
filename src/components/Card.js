@@ -29,13 +29,6 @@ function Card({ text, buttonText, image, redirectLink }) {
       },
       [theme.breakpoints.down("xs")]: {
         height: "200px",
-        // background: "#141C3A",
-        // "&:hover": {
-        //   background: "#141C3A",
-        // },
-        // "& $cardContent": {
-        //   display: "block",
-        // },
       },
     },
     cardContent: { display: "block", padding: "20px" },
