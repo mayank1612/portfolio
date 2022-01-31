@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
 import home_img from "./home_img.jpg";
+import { ExpandMore } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   home: { height: "100vh", width: "100%" },
@@ -69,6 +70,17 @@ const useStyles = makeStyles((theme) => ({
       transition: "all ease .3s",
     },
   },
+  expandIcons: {
+    marginTop: "40px",
+    fontSize: "30px",
+    animation: `$upDown 1s cubic-bezier(0.5, 0.05, 1, 0.5)`,
+    animationIterationCount: "infinite",
+    animationDirection: "alternate",
+  },
+
+  "@keyframes upDown ": {
+    from: { transform: "translate(0px, 4px)" },
+  },
 }));
 function Home() {
   const classes = useStyles();
@@ -126,6 +138,9 @@ function Home() {
               >
                 <FaInstagram className={classes.icons} />
               </Link>
+            </Grid>
+            <Grid item>
+              <ExpandMore className={classes.expandIcons} />
             </Grid>
           </Grid>
         </div>
