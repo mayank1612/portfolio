@@ -61,9 +61,15 @@ function Projects() {
         Here are a few design projects I've worked on recently.
       </Typography>
       <Grid container className={classes.projectGridContainer}>
-        {projectsData.map((data) => {
+        {projectsData.map((data, index) => {
           return (
-            <Grid item className={classes.projectGrid} xs={12} md={4}>
+            <Grid
+              item
+              className={classes.projectGrid}
+              xs={12}
+              md={4}
+              key={index}
+            >
               <Card
                 text={data.description}
                 redirectLink={data.link}
