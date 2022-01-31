@@ -141,14 +141,10 @@ function Header() {
     setAnchorEl(false);
   };
   React.useEffect(() => {
-    open
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "unset");
-    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
   function handleScroll() {
-    setShow(window.pageYOffset >= atBottom);
+    setShow(open ? true : window.pageYOffset >= atBottom);
     setAnchorEl((prevState) => {
       return show ? prevState : null;
     });
