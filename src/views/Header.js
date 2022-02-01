@@ -1,13 +1,7 @@
 import React from "react";
-import {
-  Link,
-  Grid,
-  makeStyles,
-  Popper,
-  Fade,
-  Typography,
-} from "@material-ui/core";
+import { Link, Grid, makeStyles, Popper, Fade } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
+import Scrollspy from "react-scrollspy";
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -91,6 +85,28 @@ const useStyles = makeStyles((theme) => ({
       width: "0%",
     },
     [theme.breakpoints.down("xs")]: { display: "none" },
+  },
+  scrollspy: { display: "flex", margin: "0px" },
+  scrollspyMV: { display: "block", margin: "0px" },
+  navLinksHighlighed: {
+    textDecoration: "none",
+    color: "#82b440",
+    "&::before": {
+      height: "1px",
+      background: "black",
+      content: "''",
+      display: "block",
+      position: "relative",
+      top: "25px",
+      left: "-5%",
+      opacity: 1,
+      width: "110%",
+      animation: "bottomLine 0.5",
+    },
+  },
+  "@keyframes bottomLine": {
+    from: { width: "0%" },
+    to: { width: "100%" },
   },
   menuIcon: {
     display: "block",
@@ -176,17 +192,23 @@ function Header() {
             </Link>
           </Grid>
           <Grid item className={classes.navGrid}>
-            {navLinks.map((link, index) => {
-              return (
-                <Link
-                  href={`#${link}`}
-                  key={index}
-                  className={classes.navLinks}
-                >
-                  {link}
-                </Link>
-              );
-            })}
+            <Scrollspy
+              items={navLinks}
+              currentClassName={classes.navLinksHighlighed}
+              className={classes.scrollspy}
+            >
+              {navLinks.map((link, index) => {
+                return (
+                  <Link
+                    href={`#${link}`}
+                    key={index}
+                    className={classes.navLinks}
+                  >
+                    {link}
+                  </Link>
+                );
+              })}
+            </Scrollspy>
           </Grid>
         </Grid>
       ) : null}
