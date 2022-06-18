@@ -1,6 +1,6 @@
 {
-  "name": "portfolio-website",
-  "homepage": "https://mayank1612.github.io/portfolio-website",
+  "name": "portfolio",
+  "homepage": "https://mayank1612.github.io/portfolio/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
