@@ -151,7 +151,7 @@ const personalDetails = [
   { keyName: "Birth Date:", value: "16 December, Every Year" },
   {
     keyName: "Professional Career:",
-    value: "Software Engineer Intern (React Developer)",
+    value: "Software Engineer (React Developer)",
   },
   {
     keyName: "Email:",
@@ -167,6 +167,7 @@ const skills = [
   { skill: "React", value: "50%" },
   { skill: "Java", value: "30%" },
   { skill: "GraphQL and Apollo Client", value: "20%" },
+  { skill: "Cypress", value: "20%" },
 ];
 
 function About() {
@@ -216,7 +217,7 @@ function About() {
     },
     {
       icon: <FaBriefcase className={classes.FaBriefcase} />,
-      text: "6+ months experience",
+      text: "1 year + experience",
     },
   ];
 
