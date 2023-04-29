@@ -88,10 +88,10 @@ const useStyles = makeStyles((theme) => ({
 const experienceData = [
   {
     heading: "SysCloud Inc.",
-    subHeading: "Software Engineer Intern, UI Team",
+    subHeading: "Software Engineer, UI Team",
     duration: "July 2021 - Present",
     content:
-      "I work on React. I am responsible for creating dummy components specific to SysCloud, made up of material-ui components and written in TypeScript. We call it a syscloud-ui-component library. Worked on SysCloud Health Dashboard and now working on a product application.",
+      "Joined as a intern in July 2021 and started full-time in August 2022, I work on React.",
     Icon: () => {
       return <FaBriefcase />;
     },

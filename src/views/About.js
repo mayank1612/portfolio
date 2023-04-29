@@ -160,14 +160,14 @@ const personalDetails = [
 ];
 
 const skillsPara =
-  "I am a Software Developer. I have a huge passion for developing web applications using React and of course a MERN (MongoDB, ExpressJS, ReactJS, NodeJS) person. I have someplace for Java as well in my heart.";
+  "I am a Software Developer. I have a huge passion for developing web applications using React. I have someplace for Node.js as well in my heart.";
 
 const skills = [
   { skill: "HTML & CSS, JavaScript", value: "70%" },
   { skill: "React", value: "50%" },
-  { skill: "Java", value: "30%" },
+  // { skill: "Java", value: "30%" },
+  { skill: "Cypress", value: "40%" },
   { skill: "GraphQL and Apollo Client", value: "20%" },
-  { skill: "Cypress", value: "20%" },
 ];
 
 function About() {
@@ -177,9 +177,7 @@ function About() {
     () => {
       return (
         <Typography className={classes.content}>
-          People call me Mayank or Manni. I am an epicure and vegetarian. The
-          body is made up of 5 elements but this website is made up of many
-          elements. This defines me as a Full Stack Web Developer.
+          People call me Mayank or Manni. I am a Web Developer.
         </Typography>
       );
     },
@@ -189,9 +187,8 @@ function About() {
           Heard a lot about me? Oh well. Don’t worry. It can’t all be true. I am
           &nbsp;
           <a href="https://www.artofliving.org/">Art of Living</a> (AOL)
-          volunteer with a vision to be an AOL teacher. I served as an AOL
-          student campus coordinator for 3 years during graduation at Lovely
-          Professional University.
+          faculty. I served as an AOL student campus coordinator for 3 years
+          during graduation at Lovely Professional University.
         </Typography>
       );
     },
