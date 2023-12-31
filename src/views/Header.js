@@ -3,6 +3,99 @@ import { Link, Grid, makeStyles, Popper, Fade } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import Scrollspy from "react-scrollspy";
 
+// const navLinks = ["home", "about", "experience", "projects", "contact"];
+const navLinks = ["home", "about", "experience"];
+function Header() {
+  const atBottom = 250;
+  const [show, setShow] = React.useState();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+
+  const handleClickAway = () => {
+    setAnchorEl(false);
+  };
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+  function handleScroll() {
+    setShow(window.pageYOffset >= atBottom);
+  }
+  function scrollTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  const classes = useStyles();
+  return (
+    <header id="header" className={classes.header}>
+      {show ? (
+        <Grid container className={classes.headerGrid}>
+          <Grid item className={classes.nameGrid}>
+            <Link onClick={scrollTop} className={classes.name}>
+              Mayank <span className={classes.surname}>Bhagyawani</span>
+            </Link>
+          </Grid>
+          <Grid item className={classes.navGrid}>
+            <Scrollspy
+              items={navLinks}
+              currentClassName={classes.navLinksHighlighed}
+              className={classes.scrollspy}
+            >
+              {navLinks.map((link, index) => {
+                return (
+                  <Link
+                    href={`#${link}`}
+                    key={index}
+                    className={classes.navLinks}
+                  >
+                    {link}
+                  </Link>
+                );
+              })}
+            </Scrollspy>
+          </Grid>
+        </Grid>
+      ) : null}
+      <div className={classes.MVHeader}>
+        <Link onClick={scrollTop} className={classes.name}>
+          Mayank <span className={classes.surname}>Bhagyawani</span>
+        </Link>
+        <Menu className={classes.menuIcon} onClick={handleClick} />
+        <Popper
+          open={open}
+          anchorEl={anchorEl}
+          transition
+          className={classes.popper}
+          placement="top-end"
+        >
+          {({ TransitionProps }) => (
+            <Fade {...TransitionProps} timeout={350}>
+              <div className={classes.paper}>
+                {navLinks.map((link, index) => {
+                  return (
+                    <Link
+                      href={`#${link}`}
+                      key={index}
+                      className={classes.menuLinks}
+                      onClick={handleClickAway}
+                    >
+                      {link}
+                    </Link>
+                  );
+                })}
+              </div>
+            </Fade>
+          )}
+        </Popper>
+      </div>
+    </header>
+  );
+}
 const useStyles = makeStyles((theme) => ({
   header: {
     position: "sticky",
@@ -154,98 +247,5 @@ const useStyles = makeStyles((theme) => ({
       "2px 3px 1px -1px rgb(0 0 0 / 20%), 4px 3px 1px 0px rgb(0 0 0 / 14%), 1px 5px 3px 0px rgb(0 0 0 / 12%)",
   },
 }));
-
-const navLinks = ["home", "about", "experience", "projects", "contact"];
-function Header() {
-  const atBottom = 250;
-  const [show, setShow] = React.useState();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
-  };
-
-  const open = Boolean(anchorEl);
-
-  const handleClickAway = () => {
-    setAnchorEl(false);
-  };
-  React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
-  function handleScroll() {
-    setShow(window.pageYOffset >= atBottom);
-  }
-  function scrollTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  const classes = useStyles();
-  return (
-    <header id="header" className={classes.header}>
-      {show ? (
-        <Grid container className={classes.headerGrid}>
-          <Grid item className={classes.nameGrid}>
-            <Link onClick={scrollTop} className={classes.name}>
-              Mayank <span className={classes.surname}>Bhagyawani</span>
-            </Link>
-          </Grid>
-          <Grid item className={classes.navGrid}>
-            <Scrollspy
-              items={navLinks}
-              currentClassName={classes.navLinksHighlighed}
-              className={classes.scrollspy}
-            >
-              {navLinks.map((link, index) => {
-                return (
-                  <Link
-                    href={`#${link}`}
-                    key={index}
-                    className={classes.navLinks}
-                  >
-                    {link}
-                  </Link>
-                );
-              })}
-            </Scrollspy>
-          </Grid>
-        </Grid>
-      ) : null}
-      <div className={classes.MVHeader}>
-        <Link onClick={scrollTop} className={classes.name}>
-          Mayank <span className={classes.surname}>Bhagyawani</span>
-        </Link>
-        <Menu className={classes.menuIcon} onClick={handleClick} />
-        <Popper
-          open={open}
-          anchorEl={anchorEl}
-          transition
-          className={classes.popper}
-          placement="top-end"
-        >
-          {({ TransitionProps }) => (
-            <Fade {...TransitionProps} timeout={350}>
-              <div className={classes.paper}>
-                {navLinks.map((link, index) => {
-                  return (
-                    <Link
-                      href={`#${link}`}
-                      key={index}
-                      className={classes.menuLinks}
-                      onClick={handleClickAway}
-                    >
-                      {link}
-                    </Link>
-                  );
-                })}
-              </div>
-            </Fade>
-          )}
-        </Popper>
-      </div>
-    </header>
-  );
-}
 
 export default Header;

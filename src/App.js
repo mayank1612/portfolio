@@ -20,8 +20,8 @@ function App() {
         <About />
         <HireMe />
         <Experience />
-        <Projects />
-        <Contact />
+        {/* <Projects /> */}
+        {/* <Contact /> */}
       </div>
     </ThemeProvider>
   );

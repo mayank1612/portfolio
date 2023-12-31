@@ -88,10 +88,10 @@ const useStyles = makeStyles((theme) => ({
 const experienceData = [
   {
     heading: "SysCloud Inc.",
-    subHeading: "Software Engineer, UI Team",
+    subHeading: "Software Engineer",
     duration: "July 2021 - Present",
-    content:
-      "Joined as a intern in July 2021 and started full-time in August 2022, I work on React.",
+    content: `I commenced my journey with the company as an intern in July 2021 and transitioned to a full-time position in August 2022.
+    `,
     Icon: () => {
       return <FaBriefcase />;
     },
@@ -100,8 +100,7 @@ const experienceData = [
     heading: "Art of Living",
     subHeading: "Freelancer - Poster designer and video editor",
     duration: "January 2021 - June 2021",
-    content:
-      "I use Canva to design awesome posters and Filmora for video editing. I used my MS Excel skills to create  WhatsApp group by importing contacts all at a time and sending bulk messages.",
+    content: `I utilize Canva for crafting impressive posters and leverage Filmora for proficient video editing. Additionally, I harnessed my proficiency in MS Excel to seamlessly create a WhatsApp group, efficiently importing contacts in bulk and sending messages at once.`,
     Icon: () => {
       return <ImCross />;
     },

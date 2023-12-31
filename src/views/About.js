@@ -3,6 +3,137 @@ import { Typography, Grid, makeStyles } from "@material-ui/core";
 import { FaGlobe, FaGraduationCap, FaBriefcase } from "react-icons/fa";
 import mb from "./mb.png";
 
+const personalDetails = [
+  { keyName: "Full Name:", value: "Mayank Bhagyawani" },
+  { keyName: "Birth Date:", value: "16 December, Every Year" },
+  {
+    keyName: "Professional Career:",
+    value: "Software Engineer",
+  },
+  {
+    keyName: "Email:",
+    value: "mayankbhagyawani101@gmail.com",
+  },
+];
+
+const skillsPara = `Experienced full-stack developer, proficient in the MERN stack. Technologies: React.js, Node.js, PostgreSQL, MongoDB, GraphQL, Apollo Client, Material-UI, Next.js.`;
+
+function About() {
+  const classes = useStyles();
+
+  const aboutText = [
+    () => {
+      return (
+        <Typography className={classes.content}>
+          People know me as Mayank or Manni, a Full Stack Developer.
+        </Typography>
+      );
+    },
+    () => {
+      return (
+        <Typography className={classes.content}>
+          Familiar with my name? Well, not everything you've heard is
+          necessarily true. Alongside my role as a Full Stack Developer, I'm
+          also an Art of Living (AOL) faculty member.
+        </Typography>
+      );
+    },
+    () => {
+      return (
+        <Typography className={classes.content}>
+          My biggest accomplishment is completing the #75EasyChallenge, where I
+          practiced Sudarshan Kriya and Yoga for 75 days, sharing daily videos
+          on Instagram. In addition to my passion for coding, I make time for
+          Kick-Boxing. I incorporate yoga into my routine, and to keep
+          everything in balance, I make sure to meditate regularly 😊
+        </Typography>
+      );
+    },
+  ];
+
+  const profileDetails = [
+    {
+      icon: <FaGlobe className={classes.FaGlobe} />,
+      text: "Full Stack Developer",
+    },
+    {
+      icon: <FaGraduationCap className={classes.FaGraduationCap} />,
+      text: "B.Tech, Computer Science, Lovely Professional University, Jalandhar",
+    },
+    {
+      icon: <FaBriefcase className={classes.FaBriefcase} />,
+      text: "2 years + experience",
+    },
+  ];
+
+  return (
+    <Grid container className={classes.aboutGrid} id="about">
+      <Grid item>
+        <Typography className={classes.about}>About</Typography>
+      </Grid>
+      <Grid item>
+        <Typography className={classes.heading}>
+          Let me introduce myself.
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Grid container className={classes.mainGrid}>
+          <Grid item className={classes.profilePicGrid}>
+            <img
+              src={mb}
+              alt="profile pic"
+              className={classes.profilePic}
+            ></img>
+          </Grid>
+          <Grid item className={classes.contentGrid}>
+            {aboutText.map((AboutItem, index) => {
+              return <AboutItem key={index} />;
+            })}
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid container className={classes.detailsGrid}>
+        <Grid item className={classes.profileDetailsGridItem}>
+          <Typography className={classes.detailHeading}>Profile</Typography>
+          {profileDetails.map((item, index) => {
+            return (
+              <div className={classes.detailContentDiv} key={index}>
+                <Typography variant="body2" className={classes.profileDetials}>
+                  <span className={classes.iconWrapper}>{item.icon}</span>
+                  {item.text}
+                </Typography>
+              </div>
+            );
+          })}
+          <div className={classes.personalDetailsSection}>
+            {personalDetails.map((item, index) => {
+              return (
+                <div key={index} className={classes.personalDetails}>
+                  <Typography variant="body2" className={classes.personalKey}>
+                    {item.keyName}
+                  </Typography>
+                  <Typography variant="body2" className={classes.personalValue}>
+                    {item.value}
+                  </Typography>
+                </div>
+              );
+            })}
+          </div>
+        </Grid>
+        <Grid item className={classes.skillGridItem}>
+          <Typography className={classes.detailHeading}>Skills</Typography>
+          <div className={classes.skillsContentDiv}>
+            <Typography variant="body2" className={classes.skillsPara}>
+              {skillsPara}
+            </Typography>
+          </div>
+          {}
+        </Grid>
+      </Grid>
+    </Grid>
+  );
+}
+
 const useStyles = makeStyles((theme) => ({
   aboutGrid: {
     display: "flex",
@@ -145,164 +276,5 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: { width: "100%" },
   },
 }));
-
-const personalDetails = [
-  { keyName: "Full Name:", value: "Mayank Bhagyawani" },
-  { keyName: "Birth Date:", value: "16 December, Every Year" },
-  {
-    keyName: "Professional Career:",
-    value: "Software Engineer (React Developer)",
-  },
-  {
-    keyName: "Email:",
-    value: "mayankbhagyawani101@gmail.com",
-  },
-];
-
-const skillsPara =
-  "I am a Software Developer. I have a huge passion for developing web applications using React. I have someplace for Node.js as well in my heart.";
-
-const skills = [
-  { skill: "HTML & CSS, JavaScript", value: "70%" },
-  { skill: "React", value: "50%" },
-  // { skill: "Java", value: "30%" },
-  { skill: "Cypress", value: "40%" },
-  { skill: "GraphQL and Apollo Client", value: "20%" },
-];
-
-function About() {
-  const classes = useStyles();
-
-  const aboutText = [
-    () => {
-      return (
-        <Typography className={classes.content}>
-          People call me Mayank or Manni. I am a Web Developer.
-        </Typography>
-      );
-    },
-    () => {
-      return (
-        <Typography className={classes.content}>
-          Heard a lot about me? Oh well. Don’t worry. It can’t all be true. I am
-          &nbsp;
-          <a href="https://www.artofliving.org/">Art of Living</a> (AOL)
-          faculty. I served as an AOL student campus coordinator for 3 years
-          during graduation at Lovely Professional University.
-        </Typography>
-      );
-    },
-    () => {
-      return (
-        <Typography className={classes.content}>
-          I love to take out time to practice Kick-Boxing. I explored Karate,
-          Taekwondo, Boxing and Sqay Martial Art I enjoy flexibility therefore I
-          do yoga as well and to manage this all, I meditate &#128522;
-        </Typography>
-      );
-    },
-  ];
-
-  const profileDetails = [
-    {
-      icon: <FaGlobe className={classes.FaGlobe} />,
-      text: "Web Developer",
-    },
-    {
-      icon: <FaGraduationCap className={classes.FaGraduationCap} />,
-      text: "B.Tech, Computer Science, Lovely Professional University, Jalandhar",
-    },
-    {
-      icon: <FaBriefcase className={classes.FaBriefcase} />,
-      text: "1 year + experience",
-    },
-  ];
-
-  return (
-    <Grid container className={classes.aboutGrid} id="about">
-      <Grid item>
-        <Typography className={classes.about}>About</Typography>
-      </Grid>
-      <Grid item>
-        <Typography className={classes.heading}>
-          Let me introduce myself.
-        </Typography>
-      </Grid>
-      <Grid item>
-        <Grid container className={classes.mainGrid}>
-          <Grid item className={classes.profilePicGrid}>
-            <img
-              src={mb}
-              alt="profile pic"
-              className={classes.profilePic}
-            ></img>
-          </Grid>
-          <Grid item className={classes.contentGrid}>
-            {aboutText.map((AboutItem, index) => {
-              return <AboutItem key={index} />;
-            })}
-          </Grid>
-        </Grid>
-      </Grid>
-      <Grid container className={classes.detailsGrid}>
-        <Grid item className={classes.profileDetailsGridItem}>
-          <Typography className={classes.detailHeading}>Profile</Typography>
-          {profileDetails.map((item, index) => {
-            return (
-              <div className={classes.detailContentDiv} key={index}>
-                <Typography variant="body2" className={classes.profileDetials}>
-                  <span className={classes.iconWrapper}>{item.icon}</span>
-                  {item.text}
-                </Typography>
-              </div>
-            );
-          })}
-          <div className={classes.personalDetailsSection}>
-            {personalDetails.map((item, index) => {
-              return (
-                <div key={index} className={classes.personalDetails}>
-                  <Typography variant="body2" className={classes.personalKey}>
-                    {item.keyName}
-                  </Typography>
-                  <Typography variant="body2" className={classes.personalValue}>
-                    {item.value}
-                  </Typography>
-                </div>
-              );
-            })}
-          </div>
-        </Grid>
-        <Grid item className={classes.skillGridItem}>
-          <Typography className={classes.detailHeading}>Skills</Typography>
-          <div className={classes.skillsContentDiv}>
-            <Typography variant="body2" className={classes.skillsPara}>
-              {skillsPara}
-            </Typography>
-            {skills.map((skill, index) => {
-              return (
-                <div className={classes.skillsDetails} key={index}>
-                  <Typography variant="body2">{skill.skill}</Typography>
-                  <div className={classes.skillBarWrapper}>
-                    <div className={classes.skillBar}>
-                      <div
-                        style={{
-                          height: "8px",
-                          background: "black",
-                          width: `${skill.value}`,
-                        }}
-                      ></div>
-                    </div>
-                    <div className={classes.skillValue}>{skill.value}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          {}
-        </Grid>
-      </Grid>
-    </Grid>
-  );
-}
 
 export default About;
